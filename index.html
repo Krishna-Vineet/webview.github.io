@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customised Homepage</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,500;0,700;0,900;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="CSS/index.css">
+</head>
+<body>
+
+
+  <!-- partial:index.partial.html -->
+  
+<div id="content">
+  <div class="social-buttons">
+        
+    <a href="https://www.pw.live/study/batches/study" class="social-button social-button--pw" aria-label="PW">
+      <i class="fa-solid fa-graduation-cap"></i>
+    </a>
+    <a href="https://mail.google.com/mail/u/0/#inbox" class="social-button social-button--gmail" aria-label="Gmail">
+      <i class="fa-regular fa-envelope"></i>
+    </a>
+    <a href="https://www.youtube.com/" class="social-button social-button--youtube" aria-label="YouTube">
+      <i class="fab fa-youtube"></i>
+    </a>
+    <a href="https://play.google.com/store/apps?utm_source=apac_med&hl=en-IN&utm_medium=hasem&utm_content=Dec1721&utm_campaign=Evergreen&pcampaignid=MKT-EDR-apac-in-1003227-med-hasem-ap-Evergreen-Dec1721-Text_Search_BKWS-BKWS%7CONSEM_kwid_43700058914996547_creativeid_480912526689_device_c&gclid=Cj0KCQjwqNqkBhDlARIsAFaxvwxriWDDYvxqRXVfvDNPFzsVgKSK6GFeUTcJEBdP9i94Ch5hwnvffvwaAs5zEALw_wcB&gclsrc=aw.ds&pli=1" class="social-button social-button--playstore" aria-label="Playstore">
+      <i class="fa-brands fa-google-play"></i>
+    </a>
+    <a href="https://photos.google.com/" class="social-button social-button--gphotos" aria-label="GPhotos">
+      <i class="fa-regular fa-image"></i>
+    </a>
+    <a href="https://web.telegram.org/a/" class="social-button social-button--telegram" aria-label="Telegram">
+      <i class="fa-solid fa-paper-plane"></i>
+    </a>
+    <a href="https://poki.com/" class="social-button social-button--poki" aria-label="Poki">
+      <i class="fa-solid fa-gamepad"></i>
+    </a>
+    <a href="https://codepen.io/KrishnaVineet/pens/loved" class="social-button social-button--codepen" aria-label="CodePen">
+      <i class="fab fa-codepen"></i>
+    </a>
+    <a href="https://www.canva.com/" class="social-button social-button--canva" aria-label="Canva">
+      <i class="fa-solid fa-wand-magic-sparkles"></i>
+    </a>
+    <a href="https://web.whatsapp.com/" class="social-button social-button--whatsapp" aria-label="Whatsapp">
+      <i class="fa-brands fa-whatsapp"></i>
+    </a>
+  </div>
+
+  <div class="mycontainer" style="padding: 1%;">
+    <div class='parent'>
+      <div class='child'>
+        <main>
+          <div class="atom">
+              <div class="electron"></div>
+              <div class="electron-alpha"></div>
+              <div class="electron-omega"></div>
+          </div>
+        </main>
+      </div>
+      <div class='intro-child'>
+        <div class="intro">
+          <div class="photo">
+            <img src="IMAGES/photo.jpg" alt="My photo">
+          </div>
+          <div class="textbox">
+            <p class="text">I am Krishna...</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+<!-- 
+
+    <div id="search-container" style="margin-top: 5%;">
+      <div id="search-input-container">
+        <img src="https://assets.codepen.io/1468070/Google+G+Icon.png" alt="" />
+        <input type="text" placeholder="Search anything" id="search" />
+      </div>
+      <button id="image-button" onclick="googleSearch();" type="button">
+        <i class="fa-regular fa-search"></i>
+      </button>
+      <button id="mic-button" type="button">
+        <i class="fa-regular fa-microphone"></i>
+      </button>
+    </div> -->
+      
+      
+  
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script>
+   
+  
+    const urlSpans = document.querySelectorAll('.url');
+  
+    urlSpans.forEach(function(urlSpan) {
+      urlSpan.addEventListener('click', function(event) {
+        // Prevent the default behavior of the hyperlink
+        alert('User clicked on URL');
+        event.preventDefault();
+      });
+    });
+  
+  </script>
+  
+    <!-- updating the code title and flaticon icon  -->
+  <script>
+    //  get the elements from the DOM
+    
+    const savedUrl = localStorage.getItem('url');
+    const nameSpan = document.querySelector('.name');
+    const urlSpan = document.querySelector('.url');
+    const icon = document.querySelector('.fa-stack-overflow');
+    const link = document.querySelector('#link');
+    
+    // listen for changes in the content of the name and url spans
+    // nameSpan.addEventListener('input', updateLink);
+    urlSpan.addEventListener('input', updateLink);
+    
+    function updateLink() {
+      // update the text content of the name span with the root domain
+      const domain = new URL('http://' + urlSpan.textContent).hostname.replace('www.', '');
+      link.querySelector('.name').textContent = domain;
+
+      // update the href of the link
+      link.href = 'http://' + urlSpan.textContent;
+
+      // update the icon class
+      const iconClass = 'fa-brands fa-' + domain.split('.')[0];
+      icon.className = iconClass;
+    
+
+    
+      // save the URL to local storage
+      localStorage.setItem('url', urlSpan.textContent);
+    }
+
+    // retrieve the saved URL from local storage when the page loads
+    window.addEventListener('load', function() {
+      const savedUrl = localStorage.getItem('url');
+      if (savedUrl) {
+        urlSpan.textContent = savedUrl;
+        updateLink();
+      }
+    });
+  
+  </script>
+  
+  <script>
+    function googleSearch()
+    {
+        var text=document.getElementById("search").value;
+        var cleanQuery = text.replace(" ","+",text);
+        var url='http://www.google.com/search?q='+cleanQuery;
+    
+        window.location.href=url;
+    }
+  </script>
+
+  <script>
+    const editableText= document.getElementById('editable-text');
+
+    if(localStorage.getItem('savedText')){
+      editableText.textContent=localStorage.getItem('savedText');
+    }
+
+
+    editableText.addEventListener('input', function(){
+    
+      localStorage.setItem('savedText',this.textContent);
+    })
+  </script>
+
+  <script src="https://kit.fontawesome.com/1ee8f271b9.js"></script>
+  
+</body>
+</html>
+
