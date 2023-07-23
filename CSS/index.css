@@ -7,6 +7,7 @@
   --theme-light: 0 0 0;
   --theme-medium: 0 0 0;
   --theme-dark: 0 0 0;
+  --gpt : rgb(39, 189, 144);
 }
 
 body {
